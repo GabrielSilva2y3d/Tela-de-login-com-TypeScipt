@@ -18,6 +18,9 @@ const schema = yup
   })
   .required();
 
+const loginSucedido = () => {
+  alert("Login Sucedido!");
+}
 const Login = () => {
   const {
     control,
@@ -28,7 +31,7 @@ const Login = () => {
     defaultValues,
     reValidateMode: "onChange",
   });
-
+  
   return (
     <Container>
       <LoginContainer>
@@ -50,7 +53,7 @@ const Login = () => {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button title="Entrar" />
+          <Button title="Entrar" disabled={!isValid} onClick={loginSucedido}/>
         </Column>
       </LoginContainer>
     </Container>
